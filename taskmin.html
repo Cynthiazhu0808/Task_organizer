@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name=author content="Scott D. Anderson">
+    <title>Taskmin SP21</title>
+</head>
+<body>
+
+<article>
+    <h1>Taskmin</h1>
+
+    <nav>
+        <ul>
+        <li><button class="nav dropButton" type="button">Add</button>
+            <div id="addTaskDropDown" class="dropClickContent">
+                <form id="addTask">
+                    <h2>Add Task</h2>
+                    <p><label for="taskText">Description</label></p>
+                    <textarea id="taskText" name="taskText" required></textarea>
+                    <p><label>priority
+                            <select name="taskPriority">
+                                <option>low</option>
+                                <option selected>medium</option>
+                                <option>high</option>
+                            </select>
+                    </label></p>
+                    <p><label>Due Date
+                            <input id="taskDueDate" name="taskDueDate"
+                                   type="date">
+                    </label></p>
+                    <p>tag:</p>
+                    <div id="tags">
+                        <label><input type="radio" name="tag" value="work">
+                            work</label>
+                        <label><input type="radio" name="tag" value="personal">
+                            personal</label>
+                    </div>
+                    <button id="addTaskButton" type="button">add</button>
+                    <button id="cancelAddTask" type="button">cancel</button>
+                </form>
+            </div>
+        </li>
+        <li><button class="nav dropButton" type="button">Sort</button>
+            <div class="dropContent">
+                <button id="sortIdButton" type="button">by Id</button>
+                <button id="sortTagButton" type="button">by Tag</button>
+                <button id="sortDueDateButton" type="button">by Due Date</button>
+                <button id="sortPriorityButton" type="button">by Priority</button>
+            </div>
+        </li>
+        <li><button class="nav dropButton" type="button">Local</button>
+            <div class="dropContent">
+                <button id="saveLocalButton" type="button">Save</button>
+                <button id="loadLocalButton" type="button">Load</button>
+                <button id="resetLocalButton" type="button">Reset</button>
+            </div>
+        </li>
+        <li><button class="nav dropButton" type="button">Cloud</button>
+            <div class="dropContent">
+                <button id="loginCloudButton" type="button">Login</button>
+                <button id="saveCloudButton" type="button">Save</button>
+                <button id="loadCloudButton" type="button">Load</button>
+            </div>
+        </li>
+        <li><button class="nav dropButton" type="button">Tags</button>
+            <div id="tagDropDown" class="dropClickContent">
+                <h2>Manage Tags</h2>
+                <div>
+                    <h3>Current Tags</h3>
+                    <ul id="currentTags">
+
+                    </ul>
+                    <h3>Add Tag</h3>
+                    <form id="addTagForm">
+                        <label>
+                            "name "
+                            <input type="text" name="tagName">
+                        </label>
+                        <label>
+                            "color "
+                            <input type="color" name="tagColor" value="#ffffff">
+                        </label>
+                        <p>
+                            <button id="addTagButton" type="button">submit</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </li>
+        </ul>
+    </nav>
+
+    <ul id="theTasks">
+      
+    </ul>
+
+</article>
+
+<ul class="template" id="task_elt_template">
+    <li class="task" style="background-color: tan" data-taskId="">
+        <span class="id">id</span>
+        <span class="due">date</span>
+        <span class="priority">priority</span>
+        <span class="tag">tag</span>
+        <p class="text">This is a template task, not even an example, unlike the one above</p>
+        <button type="button" class="markDone">&#x2714;</button>
+        <button type="button" class="delete">&#x2716;</button>
+    </li>
+</ul>
+
+<!-- JavaScript at the bottom -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cs.wellesley.edu/~anderson/js/bounds/bounds-plugin.js"></script>
+<script src="https://cs.wellesley.edu/~cs204/assignments/project/examples-sp21.js"></script>
+<script src="https://cs.wellesley.edu/cs204cloud/static/cloudapi.js"></script>
+<script src="Task.js"></script>
+<script src="cloud-storage.js"></script>
+<script src="TaskList.js"></script>
+<script src="dropdowns.js"></script>
+<script src="main.js"></script>
+<script src="dynamic-tags.js"></script>
+
+
+</body>
+</html>
